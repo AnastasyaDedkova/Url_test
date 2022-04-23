@@ -1,15 +1,22 @@
 import webbrowser
 #  Обработка  введенного запроса
-call = input("Введите ссылку на сайт, который нужно проверить")
-if call[0] == 'h' and call[4] == 's':
-    call1 = call[8:]
-elif call[0] == 'h' and call[4] == ':':
-    call1 = call[7:]
-else:
-    call1 = call
-if call[-1] == '/':
-    call2 = call1[:-1]
-else:
-    call2 = call1
+def req():
+    call1 = input("Введите ссылку на сайт, который нужно проверить")
+    if call1[0] == 'h' and call1[4] == 's':
+        call2 = call1[8:]
+    elif call1[0] == 'h' and call1[4] == ':':
+        call2 = call1[7:]
+    else:
+        call2 = call1
+    if call2[-1] == '/':
+        call = call2[:-1]
+    else:
+        call = call2
+    return call
 #  Переадресация на сайт
-webbrowser.open('https://www.virustotal.com/gui/search/' + call2)
+def test_url():
+    webbrowser.open('https://www.virustotal.com/gui/search/' + site_url)
+
+site_url = req()
+test_url()
+
