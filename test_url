@@ -1,0 +1,15 @@
+import webbrowser
+#  Обработка  введенного запроса
+call = input("Введите ссылку на сайт, который нужно проверить")
+if call[0] == 'h' and call[4] == 's':
+    call1 = call[8:]
+elif call[0] == 'h' and call[4] == ':':
+    call1 = call[7:]
+else:
+    call1 = call
+if call[-1] == '/':
+    call2 = call1[:-1]
+else:
+    call2 = call1
+#  Переадресация на сайт
+webbrowser.open('https://www.virustotal.com/gui/search/' + call2)
