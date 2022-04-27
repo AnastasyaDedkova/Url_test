@@ -2,16 +2,17 @@ import webbrowser
 #  Обработка  введенного запроса
 def req():
     call1 = input("Введите ссылку на сайт, который нужно проверить")
-    if call1[0] == 'h' and call1[4] == 's':
-        call2 = call1[8:]
-    elif call1[0] == 'h' and call1[4] == ':':
-        call2 = call1[7:]
+    call2 = call1.replace(' ', '')
+    if call2[0] == 'h' and call2[4] == 's':
+        call3 = call2[8:]
+    elif call2[0] == 'h' and call2[4] == ':':
+        call3 = call2[7:]
     else:
-        call2 = call1
-    if call2[-1] == '/':
-        call = call2[:-1]
+        call3 = call2
+    if call3[-1] == '/':
+        call = call3[:-1]
     else:
-        call = call2
+        call = call3
     return call
 #  Переадресация на сайт
 def test_url():
@@ -19,4 +20,3 @@ def test_url():
 
 site_url = req()
 test_url()
-
